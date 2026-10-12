@@ -1,0 +1,595 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap');
+
+/* 色：紺（ヨーロッパの夜空・インク）＋ワインレッド＋金（古い写本の飾り） */
+:root {
+  --navy-deep: #1c2a44;
+  --navy: #2f4570;
+  --navy-mid: #546a93;
+  --navy-soft: #93a2bf;
+  --parchment: #f4eee2;
+  --paper: #fcfaf5;
+  --ink: #2a2a30;
+  --ink-soft: #66656c;
+  --line: #ddd5c4;
+  --accent: #8e2f3c;
+  --gold: #b08d3c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Serif JP", "Shippori Mincho", serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(252, 250, 245, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy-deep);
+  letter-spacing: 0.08em;
+}
+
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.site-header nav a {
+  font-size: 0.9rem;
+  color: var(--navy);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 0.2s;
+}
+
+.site-header nav a:hover {
+  border-color: var(--navy-mid);
+}
+
+/* Hero */
+.hero {
+  max-width: 1200px;
+  width: calc(100% - 48px);
+  margin: 0 auto;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(176, 141, 60, 0.18), transparent 55%),
+    radial-gradient(circle at 82% 65%, rgba(47, 69, 112, 0.2), transparent 55%),
+    var(--parchment);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.hero-inner {
+  padding: 120px 24px 100px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 5vw, 3rem);
+  color: var(--navy-deep);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+}
+
+.hero-catch {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+  color: var(--navy);
+  letter-spacing: 0.15em;
+  margin-bottom: 14px;
+}
+
+.hero-lead {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.hero-message {
+  max-width: 640px;
+  margin: 44px auto 0;
+  padding: 28px 28px 24px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gold);
+  border-radius: 4px;
+}
+
+.hero-message-title {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: clamp(1.15rem, 3vw, 1.4rem);
+  font-weight: 700;
+  color: var(--navy-deep);
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+}
+
+.hero-message p:not(.hero-message-title) {
+  font-size: 0.95rem;
+}
+
+.book-title {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+}
+
+/* Section shared */
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 90px 24px;
+}
+
+h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 1.5rem;
+  color: var(--navy-deep);
+  margin-bottom: 48px;
+  letter-spacing: 0.08em;
+}
+
+h2 span {
+  font-family: 'Georgia', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* 時代ごとの目次（年表風） */
+.timeline {
+  list-style: none;
+  border-left: 2px solid var(--line);
+  margin-left: 8px;
+}
+
+.era {
+  position: relative;
+  padding: 0 0 48px 36px;
+}
+
+.era:last-child {
+  padding-bottom: 0;
+}
+
+.era::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 3px solid var(--gold);
+}
+
+.era-label {
+  font-family: 'Georgia', serif;
+  font-size: 0.75rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.era h3 {
+  font-size: 1.2rem;
+  color: var(--navy-deep);
+  margin-bottom: 14px;
+  letter-spacing: 0.06em;
+}
+
+.chapter-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.chapter-list a,
+.chapter-list .soon {
+  display: block;
+  height: 100%;
+  background: var(--parchment);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 18px 22px;
+  font-size: 0.95rem;
+  color: var(--navy-deep);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.chapter-list a:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold);
+  box-shadow: 0 10px 20px rgba(28, 42, 68, 0.08);
+}
+
+.chapter-list .num {
+  display: block;
+  font-family: 'Georgia', serif;
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+}
+
+.chapter-list .soon {
+  color: var(--ink-soft);
+  background: transparent;
+  border-style: dashed;
+}
+
+/* 姉妹サイト（森のしおり）への案内 */
+.sister {
+  border-top: 1px solid var(--line);
+}
+
+.sister-card {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: var(--parchment);
+  border: 1px solid var(--line);
+  border-left: 4px solid #3d5c46;
+  border-radius: 4px;
+  padding: 32px 36px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.sister-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(28, 42, 68, 0.08);
+}
+
+.sister-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #3d5c46;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.sister-name {
+  font-weight: 700;
+  color: #24382c;
+  margin-bottom: 4px;
+}
+
+.sister-desc {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* Sub-page hero (章のページ) */
+.hero-sub .hero-inner {
+  padding: 90px 24px 70px;
+  text-align: left;
+}
+
+.breadcrumb {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+
+.breadcrumb a {
+  color: var(--navy);
+  border-bottom: 1px solid var(--navy-soft);
+}
+
+.hero-sub h1 {
+  font-size: clamp(1.4rem, 3.2vw, 1.9rem);
+  color: var(--paper);
+  background: var(--navy);
+  padding: 18px 28px;
+  border-radius: 4px;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+/* 章の本文 */
+.post-section .section-inner {
+  max-width: 900px;
+}
+
+.post-body p {
+  margin-bottom: 22px;
+  font-size: 0.95rem;
+}
+
+.post-body h3 {
+  font-size: 1.15rem;
+  color: var(--navy-deep);
+  margin: 40px 0 16px;
+  padding-left: 12px;
+  border-left: 4px solid var(--gold);
+}
+
+.post-body strong {
+  color: var(--navy-deep);
+}
+
+.post-body .accent {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* 章内の目次 */
+.post-toc {
+  background: var(--parchment);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin-bottom: 64px;
+}
+
+.post-toc-title {
+  font-size: 0.8rem;
+  color: var(--navy-mid);
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+}
+
+.post-toc ul {
+  list-style: none;
+}
+
+.post-toc li + li {
+  margin-top: 10px;
+}
+
+.post-toc a {
+  font-size: 0.95rem;
+  color: var(--navy-deep);
+  border-bottom: 1px solid var(--navy-soft);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.post-toc a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* 1つの要約（ページ範囲ごと） */
+.post {
+  margin-bottom: 80px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 80px;
+}
+
+.post-category {
+  font-size: 0.75rem;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.post-header h2 {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 28px;
+}
+
+.post-photo {
+  margin-bottom: 32px;
+}
+
+.post-photo img {
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+}
+
+.post-photo figcaption {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--navy);
+  text-align: center;
+}
+
+/* 筆者の主張のポイント */
+.point {
+  background: var(--parchment);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gold);
+  border-radius: 4px;
+  padding: 22px 26px;
+  margin-bottom: 32px;
+}
+
+.point-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.point p:not(.point-title),
+.point li {
+  font-size: 0.95rem;
+  color: var(--navy-deep);
+  font-weight: 500;
+}
+
+.point ul {
+  padding-left: 1.2em;
+}
+
+.point li + li {
+  margin-top: 6px;
+}
+
+/* 年表 */
+.table-title {
+  font-size: 1.05rem;
+  color: var(--navy-deep);
+  margin: 40px 0 16px;
+  padding-left: 12px;
+  border-left: 4px solid var(--gold);
+}
+
+.chronology {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.chronology th {
+  background: var(--navy);
+  color: var(--paper);
+  font-weight: 500;
+  text-align: left;
+  padding: 10px 16px;
+}
+
+.chronology td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.chronology td:first-child {
+  white-space: nowrap;
+  color: var(--accent);
+  font-weight: 600;
+  width: 34%;
+}
+
+.chronology tbody tr:nth-child(even) {
+  background: var(--parchment);
+}
+
+.source-note {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .chronology td:first-child {
+    white-space: normal;
+  }
+
+  .post-toc {
+    padding: 22px 20px;
+  }
+}
+
+/* 章末のひとこと */
+.note {
+  margin-top: 36px;
+  padding: 24px 28px;
+  background: var(--parchment);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+}
+
+.note-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+}
+
+.note p:not(.note-title) {
+  font-size: 0.95rem;
+  color: var(--navy-deep);
+  line-height: 1.9;
+}
+
+.chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+
+.chapter-nav a {
+  color: var(--navy);
+  border-bottom: 1px solid var(--navy-soft);
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 40px 24px;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--line);
+}
+
+.site-footer a {
+  color: var(--navy);
+  border-bottom: 1px solid var(--navy-soft);
+}
+
+@media (max-width: 600px) {
+  .hero {
+    width: calc(100% - 32px);
+  }
+
+  .hero-inner {
+    padding: 80px 16px 64px;
+  }
+
+  .section-inner {
+    padding: 64px 16px;
+  }
+
+  .header-inner {
+    padding: 14px 16px;
+  }
+
+  .sister-card {
+    padding: 24px 20px;
+    gap: 18px;
+  }
+}
