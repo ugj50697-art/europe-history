@@ -222,7 +222,8 @@ h2 span {
   gap: 16px;
 }
 
-.chapter-list a,
+.chapter-list > li > a,
+.chapter-list .ready,
 .chapter-list .soon {
   display: block;
   height: 100%;
@@ -235,10 +236,62 @@ h2 span {
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
-.chapter-list a:hover {
+.chapter-list > li > a:hover,
+.chapter-list .ready:hover {
   transform: translateY(-3px);
   border-color: var(--gold);
   box-shadow: 0 10px 20px rgba(28, 42, 68, 0.08);
+}
+
+/* 公開済みの章：金の線で目立たせ、中の要約へのリンクも並べる */
+.chapter-list .ready {
+  border-top: 3px solid var(--gold);
+}
+
+.ready-title {
+  display: block;
+  font-weight: 700;
+  color: var(--navy-deep);
+}
+
+.chapter-sub {
+  list-style: none;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+}
+
+.chapter-sub li + li {
+  margin-top: 4px;
+}
+
+.chapter-sub a {
+  font-size: 0.85rem;
+  color: var(--navy);
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.chapter-sub a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.chapter-list .tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 0 8px;
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  vertical-align: middle;
+}
+
+.toc-note {
+  margin-top: 32px;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
 }
 
 .chapter-list .num {
